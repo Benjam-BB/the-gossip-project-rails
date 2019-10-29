@@ -1,7 +1,12 @@
 <html>
 <body>
-    <%=flash_messages%>
+<% if @gossip != nil %> <!-- si le @gossip de gossip/new a été créer -->
+    <div class="alert alert-success" role="alert">
+        <p>Votre Gossip a bien été enregistré</p>
+    </div>
+ <% end %>
     <h1>Bonjour bienvenue chez les Gossips</h1>
+      <a class="btn btn-secondary" <%= link_to "Soumettre un Gossip", new_gossip_path%></a>
     <h3>Voici nos plus vilains gossips</h3>
     <div class="card-deck">
         <% Gossip.all.each do |gossip| %> <!-- -->

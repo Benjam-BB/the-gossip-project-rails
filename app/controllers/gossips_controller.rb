@@ -1,15 +1,16 @@
 class GossipsController < ApplicationController
   def new
+    @gossip = Gossip.new
   end
 
   def create
-    @gossip = Gossip.new(title: params[:gossip_title],content: params[:gossip_content],user_id: 121) #id 121 pour rechercher le user anonymous dont l'id est 121
+    anonymous=User.new(first_name:"Anonymous", last_name:"unknown",age: 99,description: "unknown",email:"unknown#{rand(1000)}@mail.com",city_id:City.all.sample.id)
+    anonymous.save #créer le user aninymous qui créer des gossips sans user
+    @gossip = Gossip.new(title: params[:gossip_title],content: params[:gossip_content],user_id: anonymous.id) 
   	if @gossip.save # essaie de sauvegarder en base @gossip
-    	flash.now[:success] = 'Génial, tu as bien enregistré ton Gossip !'
-      render 'gossips/index', to: 'gossips#index'
+      render 'index'
     else
-    	flash.now[:error] = "Veuillez rentrer un titre (de plus de 3 caractères) un contenu !"
-    	render 'gossips/new', to: 'gossips#new'
+      render 'gossips/new', to: 'gossips#new'
     	
     end
   end
