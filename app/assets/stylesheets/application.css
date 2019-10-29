@@ -17,7 +17,15 @@
  .main { 
     margin: 0% 3% 0% 3%;
     background-color: #f0f0f0;
-    
-    
      }
     
+   .jumbotron {
+      line-height:0px;
+      font-weight:bold;
+      text-shadow: #ffffff 1px 1px 1px;
+      background-image: url('https://news.ucr.edu/sites/g/files/rcwecm1816/files/2019-05/gossip%20pic.jpg');
+      background-position: center;
+      opacity: 0.9;
+      min-height: 300px;
+  }
+  

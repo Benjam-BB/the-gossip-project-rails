@@ -1,0 +1,18 @@
+<h1><%= @user.find(params[:id]).first_name%> <%= @user.find(params[:id]).last_name%> </h1>
+
+<p> Utilisateur n°<%=@user.find(params[:id]).id%><br/>
+    Age : <%=@user.find(params[:id]).age%><br/>
+    Description : <%=@user.find(params[:id]).description%><br/>
+</p>
+
+<div>
+    <h2>Ses Gossips : </h2>
+    <% @gossip.where(user_id: params[:id]).each do |gossip| %>
+    <p>
+          Gossip n°<%= gossip.id %><br/>
+          <%= gossip.title %><br/>
+          <%= link_to "Voir ce Gossip", gossip_path(gossip.id) %>
+      <%end%>
+    </p>
+  
+</div>
