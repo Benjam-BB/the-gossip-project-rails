@@ -1,7 +1,14 @@
-<h1>Voici le Gossip n°<%= params[:id]%></h1>
-
-<p> Titre : <%= Gossip.find(params[:id]).title %><br/>
-    Contenu : <%= Gossip.find(params[:id]).content %><br/>
-    Auteur : <%= link_to "#{User.find(Gossip.find(params[:id]).user_id).first_name} #{User.find(Gossip.find(params[:id]).user_id).last_name}", user_path(Gossip.find(params[:id]).user_id.to_i) %> <br/>
-    Créer le : <%= Gossip.find(params[:id]).created_at.to_date %><br/>
- </p>
+<div class="card bg-light">
+    <h1 class="card-header">Voici le Gossip n°<%= params[:id]%></h1>
+    <div class="card-body">
+        <h5 class="card-title"> Titre : <%= Gossip.find(params[:id]).title %></h5>
+        <p class="card-text"> Contenu : <%= Gossip.find(params[:id]).content %></p>
+        <p class="card-text">Auteur : <%= link_to "#{User.find(Gossip.find(params[:id]).user_id).first_name} #{User.find(Gossip.find(params[:id]).user_id).last_name}", user_path(Gossip.find(params[:id]).user_id.to_i) %></p>
+        <p class="card-text">Ville : <%= link_to "#{City.find(User.find(Gossip.find(params[:id]).user_id).city_id).name}", city_path(City.find(User.find(Gossip.find(params[:id]).user_id).city_id.to_i)) %></p>
+        <p class="card-text"> Créer le : <%= Gossip.find(params[:id]).created_at.to_date %></p>
+        <div class="row mb-3 d-flex justify-content-around align-content-start">
+            <a type="button" class="btn btn-outline-primary" href="<%= edit_gossip_path(Gossip.find(params[:id]).id) %>">Editer</a>
+            <a href="<%= @gossip %>" type="button" class="btn btn-outline-danger" data-confirm="Êtes-vous sûr de supprimer ce gossip ?" data-method="DELETE" >Détruire</a>
+        </div>
+    </div>
+ </div>

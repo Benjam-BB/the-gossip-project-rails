@@ -1,18 +1,25 @@
-<h1><%= @user.find(params[:id]).first_name%> <%= @user.find(params[:id]).last_name%> </h1>
-
-<p> Utilisateur n°<%=@user.find(params[:id]).id%><br/>
-    Age : <%=@user.find(params[:id]).age%><br/>
-    Description : <%=@user.find(params[:id]).description%><br/>
-</p>
-
-<div>
-    <h2>Ses Gossips : </h2>
+<div class="card bg-light border-dark">
+    <h1 class="card-header"><%= @user.find(params[:id]).first_name%> <%= @user.find(params[:id]).last_name%> </h1>
+    <div class="card-body">
+        <h5 class="card-title">Utilisateur n°<%=@user.find(params[:id]).id%></h5>
+        <p class="card-text"> Description : <%=@user.find(params[:id]).description%></p>
+        <p class="card-text">Age : <%=@user.find(params[:id]).age%></p>
+        <p class="card-text">Email : <%=@user.find(params[:id]).email%></p>
+        <p class="card-text">Ville : <%=link_to"#{City.find(@user.find(params[:id]).city_id).name}", city_path(City.find(@user.find(params[:id]).city_id.to_i))%></p>
+    </div>
+</div>
+<br/>
+<h2>Ses Gossips : </h2>
+<div class="card-deck d-flex">
     <% @gossip.where(user_id: params[:id]).each do |gossip| %>
-    <p>
-          Gossip n°<%= gossip.id %><br/>
-          <%= gossip.title %><br/>
-          <%= link_to "Voir ce Gossip", gossip_path(gossip.id) %>
-      <%end%>
-    </p>
-  
+    <div class="col-sm-4 mb-3">
+        <div class="card bg-light">
+            <h5 class="card-header">Gossip n°<%= gossip.id %></h5>
+            <div class="card-body">
+                <h5 class="card-title"><%= gossip.title %></h5>
+                <a class="card-text btn btn-outline-primary btn-sm" href=" <%= gossip_path(gossip.id) %>">Voir ce Gossip</a>
+            </div>
+        </div>
+    </div>
+    <%end%>
 </div>

@@ -1,0 +1,24 @@
+<div class="card border-primary mb-3">
+    <h1 class="card-header"><%= City.find(params[:id]).name%> </h1>
+    <div class="card-body">
+        <p class="card-text"> Zip-code : <%= City.find(params[:id]).zip_code%></p>
+        <h5 class="card-title">C'est une très jolie ville !</h5>
+        <p class="card-text"> De la verdure et des dealers c'est chouette</p>
+    </div>
+</div>
+
+<h2>Voici les Gossips en provenance de <%= City.find(params[:id]).name%></h2>
+<div class="card-deck d-flex">
+    <% @gossip.where(user_id: @user.where(city_id: params[:id])).each do |gossip| %>
+    <div class="col-sm-4 mb-3">
+        <div class="card bg-light">
+            <h5 class="card-header">Gossip n°<%= gossip.id %></h5>
+            <div class="card-body">
+                <h5 class="card-title"><%= gossip.title %></h5>
+                <p class="card-text">Auteur : <%= link_to "#{User.find(gossip.user_id).first_name}  #{User.find(gossip.user_id).last_name}", user_path(User.find(gossip.user_id).id.to_i) %></p>
+                <a class="card-text btn btn-outline-primary btn-sm" href=" <%= gossip_path(gossip.id) %>">Voir ce Gossip</a>
+            </div>
+        </div>
+    </div>
+    <%end%>
+</div>

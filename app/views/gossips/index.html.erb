@@ -5,18 +5,21 @@
         <p>Votre Gossip a bien été enregistré</p>
     </div>
  <% end %>
+
     <h1>Bonjour bienvenue chez les Gossips</h1>
-      <a class="btn btn-secondary" <%= link_to "Soumettre un Gossip", new_gossip_path%></a>
+      <a class="btn btn-secondary" href="<%= new_gossip_path%>">Soumettre un Gossip</a>
+
+
     <h3>Voici nos plus vilains gossips</h3>
     <div class="card-deck">
         <% Gossip.all.each do |gossip| %> <!-- -->
         <div class="col-sm-4 mb-3">
-            <div class="card">
+            <div class="card bg-light">
+                <h5 class="card-header"> Gossip n°<%= gossip.id %></h5>
                 <div class="card-body">
-                    <h5 class="card-title"> Gossip n°<%= gossip.id %></h5>
-                    <p class="card-text"><%= gossip.title %></p>
+                    <h5 class="card-title"><%= gossip.title %></h5>
                     <p class="card-text"><%= User.all.find(gossip.user_id).first_name %> <%= User.all.find(gossip.user_id).last_name %></p>
-                    <p class="card-text"><%= link_to "Voir ce Gossip", gossip_path(gossip.id) %></p>
+                    <a class="card-text btn btn-outline-primary btn-sm" href="<%= gossip_path(gossip.id) %>">Voir ce Gossip</a>
                 </div>
             </div>
         </div>
