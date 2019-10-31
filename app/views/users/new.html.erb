@@ -1,2 +1,38 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<html>
+<body>
+
+    <div class="row d-flex justify-content-center">
+    <h1> Créer ton compte</h1>
+    <div class="container d-flex justify-content-center">
+        <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >        <br /> 
+            <div><%= label_tag 'Ton prénom' %></div>
+            <div><%= text_field_tag 'first_name' %></div>
+            <br /> 
+            <div><%= label_tag 'Ton nom' %></div>
+            <div><%= text_field_tag 'last_name' %></div>
+            <br /> 
+            <div><%= label_tag 'Ton email' %></div>
+            <div><%= text_field_tag 'email'%></div>
+             <br /> 
+            <div><%= label_tag 'Mot de passe' %></div>
+            <div><%= password_field_tag 'password'%></div>
+             <br /> 
+            <div><%= label_tag 'Confirmer le mot de passe' %></div>
+            <div><%= password_field_tag 'password_confirmation'%></div>
+             <br /> 
+            <div><%= label_tag 'Ton âge' %></div>
+            <div><%= text_field_tag 'age'%></div>
+               <br /> 
+            <div><%= label_tag 'Ta description' %></div>
+            <div><%= text_area_tag 'description'%></div>
+            
+            
+            <br /> <br />
+            <%= submit_tag "Valider", class: 'btn btn-primary btn-lg btn-submit'  %>
+        <% end %>
+    </div>
+    </div>
+</form>
+</body>
+</html>

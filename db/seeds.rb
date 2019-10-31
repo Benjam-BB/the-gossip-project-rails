@@ -6,17 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'database_cleaner' #permet de réinitialiser la base à chaque relance du seed
 
-City.destroy_all
-User.destroy_all
-Gossip.destroy_all
-Tag.destroy_all
-TagList.destroy_all
-PrivateMessage.destroy_all
-Recipient.destroy_all
-Comment.destroy_all
-Like.destroy_all
-puts "All destroy"
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
+
+puts "DataBase Clean"
 
 
 10.times do		#cree 10 villes

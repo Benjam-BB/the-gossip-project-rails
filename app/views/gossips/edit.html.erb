@@ -12,7 +12,7 @@
                 <div><%= text_field_tag 'gossip_title', value = Gossip.find(params[:id]).title %></div>
                 <br /> 
                 <div><%= label_tag 'Edite le contenu' %></div>
-                <div><%= text_field_tag 'gossip_content', value = Gossip.find(params[:id]).content%></div>
+                <div><%= text_area_tag 'gossip_content', value = Gossip.find(params[:id]).content%></div>
                 <br /> 
                 <%= submit_tag "Modifier", class: 'btn btn-primary btn-lg btn-submit'  %>
             <% end %>
