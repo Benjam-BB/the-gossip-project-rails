@@ -36,8 +36,7 @@ $ shotgun -p 3000
 ```
 
 
-Open a browser and go to : http://localhost:3000/welcome
-or http://localhost:3000/welcome/your_name for a personalized landing page
+Open a browser and go to : http://localhost:3000/welcome/mireille for a personalized landing page
 
 Navigate and envoy the Gossips
 
