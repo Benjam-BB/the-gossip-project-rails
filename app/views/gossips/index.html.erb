@@ -16,7 +16,7 @@
         <% Gossip.all.each do |gossip| %> <!-- -->
         <div class="col-sm-4 mb-3">
             <div class="card bg-light">
-                <h5 class="card-header"> Gossip n°<%= gossip.id %></h5>
+                <h5 class="card-header"> Gossip n°<%= gossip.id %>     <%= render 'like/likes'%></h5>
                 <div class="card-body">
                     <h5 class="card-title"><%= gossip.title %></h5>
                     <p class="card-text"><%= User.all.find(gossip.user_id).first_name %> <%= User.all.find(gossip.user_id).last_name %></p>

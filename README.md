@@ -6,8 +6,8 @@ Made for Ruby 2.5.1 Rails 5.2.3
 
 PRESENTATION
 
-The Gossip Project ("TGP") gathers the best gossips ever heard in THP. This the v2, you'll soon be able to comment and like the gossips.
-
+The Gossip Project gathers the best gossips ever heard in THP. This the v2, you'll soon be able to comment and like the gossips.
+Some alert about what you're doing and created/destroying things might not work.
 SET-UP
 ```
 $ git clone https://github.com/Benjam-BB/the-gossip-project-rails

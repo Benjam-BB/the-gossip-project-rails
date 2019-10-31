@@ -1,4 +1,5 @@
 <h1>Bienvenue <%= params[:first_name] %></h1>
 <br/>
-<p>C'est un super site de gossip, j'espère qu'il te plait ! </p>
-<p><%= link_to "Voir tous les gossips", gossips_path %></p>
+<p>Nous sommes le <%= Time.current %>, la temparature au sol est de 29°c !</p>
+<p>Es-tu prêt pour les gossips ? (Adult Only)</p>
+<a class="btn btn-primary" data-confirm="Êtes-vous sûr de vouloir accéder aux plus vilains gossips ?" href="<%= gossips_path %>">Voir les plus vilains gossips</a>
