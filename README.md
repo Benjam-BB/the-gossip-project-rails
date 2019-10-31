@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## THE GOSSIP PROJECT
 
-Things you may want to cover:
+Made for Ruby 2.5.1 Rails 5.2.3
 
-* Ruby version
+PRESENTATION
 
-* System dependencies
+The Gossip Project ("TGP") gathers the best gossips ever heard in THP. This the v2, you'll soon be able to comment and like the gossips.
 
-* Configuration
+SET-UP
+```
+$ git clone https://github.com/Benjam-BB/the-gossip-project-rails
+```
 
-* Database creation
+Go to the folder and run 
+```
+$ bundle install
+```
 
-* Database initialization
+Initialize the database, active the migrations and run the seed :
+```
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
+RUNNING
 
-* How to run the test suite
+Launch your server :
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ shotgun -p 3000
+```
 
-* Deployment instructions
 
-* ...
+Open a browser and go to : http://localhost:3000/welcome
+or http://localhost:3000/welcome/your_name for a personalized landing page
+
+Navigate and envoy the Gossips
+
+If you want to contact me, my details are in the contact page.
