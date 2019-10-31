@@ -17,6 +17,7 @@ Go to the folder and run
 ```
 $ bundle install
 ```
+> **Watch out** : check that none database on your computer has the same name than mine. If this is the case go to config > database.yml and change the names of each database.
 
 Initialize the database, active the migrations and run the seed :
 ```
